@@ -1,203 +1,202 @@
-# Bedienungsanleitung für das Esperanto-Kanji-Konverter und Ruby-Annotationswerkzeug
+# Benutzerhandbuch: Esperanto-Kanji-Konverter und Ruby-Anmerkungstool
 
 ## Einführung
 
-Willkommen zum Esperanto-Kanji-Konverter und Ruby-Annotationswerkzeug! Diese Anwendung ermöglicht es Ihnen, Esperanto-Texte in verschiedene Formate zu konvertieren, wobei die Wörter durch andere Zeichen (z.B. chinesische Schriftzeichen/Kanji oder deutsche Übersetzungen) ersetzt werden können. Außerdem können Sie Ruby-Annotationen hinzufügen, die die ursprünglichen Esperanto-Wörter über oder unter den ersetzten Zeichen anzeigen.
+Willkommen zum Esperanto-Kanji-Konverter und Ruby-Anmerkungstool! Diese Anwendung ermöglicht Ihnen, Esperanto-Texte auf verschiedene Weisen zu bearbeiten:
 
-Diese Anwendung besteht aus zwei Hauptkomponenten:
-1. **Hauptseite**: Hier können Sie Texte umwandeln und verschiedene Ausgabeformate wählen
-2. **Seite zur Erstellung von JSON-Dateien**: Hier können Sie eigene Ersetzungsregeln erstellen
+- Ersetzen von Esperanto-Wörtern durch entsprechende Kanji (chinesische Zeichen) oder deutsche Übersetzungen
+- Hinzufügen von Ruby-Anmerkungen (kleine Erklärungstexte über den Wörtern, ähnlich wie Furigana im Japanischen)
+- Verschiedene Ausgabeformate wie HTML oder Klammernotation
 
-## Inhalt dieser Anleitung
+Die Anwendung besteht aus zwei Hauptkomponenten:
+1. **Hauptseite**: Zur Umwandlung von Esperanto-Texten
+2. **Seite zur JSON-Generierung**: Zur Erstellung eigener Ersetzungsregeln
 
-1. Übersicht der Hauptseite
-2. Schritt-für-Schritt-Anleitung zur Textkonvertierung
-3. Ausgabeformate verstehen
-4. Spezielle Textmarkierungen mit % und @
-5. Erstellen eigener Ersetzungsregeln (JSON)
-6. Tipps und Tricks
-7. Fehlerbehebung
+## 1. Hauptseite: Umwandlung von Esperanto-Texten
 
-## 1. Übersicht der Hauptseite
+### 1.1 Erste Schritte
 
-Die Hauptseite des Werkzeugs bietet Ihnen folgende Funktionen:
+Wenn Sie die Hauptseite öffnen, sehen Sie den Titel "Ersetzung von Esperanto-Text durch Kanji oder HTML-Anmerkungen" und können mit der Konvertierung beginnen.
 
-- **Laden von Ersetzungsregeln**: Sie können entweder Standard-Ersetzungsregeln verwenden oder Ihre eigenen hochladen
-- **Eingabe von Esperanto-Text**: Entweder durch manuelle Eingabe oder durch Hochladen einer Textdatei
-- **Auswahl des Ausgabeformats**: Verschiedene HTML-Formate mit Ruby-Annotationen oder einfache Textersetzung
-- **Einstellung der Darstellung spezieller Esperanto-Zeichen**: Wahl zwischen verschiedenen Darstellungsformen (ĉ, cx, c^)
-- **Parallelverarbeitung**: Option zur Beschleunigung großer Textkonvertierungen
+### 1.2 JSON-Datei für die Ersetzungsregeln auswählen
 
-## 2. Schritt-für-Schritt-Anleitung zur Textkonvertierung
+Als Erstes müssen Sie eine JSON-Datei mit Ersetzungsregeln wählen:
 
-### 2.1. Laden der Ersetzungsregeln (JSON-Datei)
+- **Standard-JSON verwenden**: Verwendet die vorinstallierte Standarddatei mit Ersetzungsregeln
+- **Datei hochladen**: Laden Sie Ihre eigene JSON-Datei mit Ersetzungsregeln hoch
 
-1. Wählen Sie zu Beginn, ob Sie die Standard-JSON-Datei verwenden möchten oder eine eigene hochladen wollen.
-   - **Standard-JSON verwenden**: Die Anwendung verwendet die integrierte Datei mit Esperanto-Wortstämmen und deren Übersetzungen.
-   - **Datei hochladen**: Laden Sie Ihre eigene JSON-Datei hoch, die Sie entweder selbst erstellt haben oder von der zweiten Seite der Anwendung bezogen haben.
+Sie können auch eine Beispiel-JSON-Datei herunterladen, indem Sie den Abschnitt "Beispiel-JSON-Datei herunterladen" erweitern.
 
-2. Falls Sie eine Beispiel-JSON herunterladen möchten, können Sie auf "Beispiel-JSON-Datei herunterladen" klicken.
+### 1.3 Erweiterte Einstellungen
 
-### 2.2. Erweiterte Einstellungen (optional)
+Im Abschnitt "Erweiterte Einstellungen" können Sie die Parallelverarbeitung aktivieren:
 
-1. Klicken Sie auf "Einstellungen für die Parallelverarbeitung öffnen", um die Leistungsoptionen anzupassen.
-2. Aktivieren Sie die Parallelverarbeitung, wenn Sie große Textmengen verarbeiten möchten.
-3. Wählen Sie die Anzahl der gleichzeitigen Prozesse (2-4). Hinweis: Mehr Prozesse bedeuten nicht unbedingt bessere Leistung.
+- **Parallelverarbeitung verwenden**: Aktiviert die Verwendung mehrerer Prozessoren zur schnelleren Verarbeitung
+- **Anzahl gleichzeitiger Prozesse**: Legt fest, wie viele Prozesse parallel ausgeführt werden (2-4)
 
-### 2.3. Ausgabeformat wählen
+### 1.4 Ausgabeformat wählen
 
-Wählen Sie das gewünschte Ausgabeformat aus dem Dropdown-Menü. Die Optionen werden später im Detail erklärt.
+Wählen Sie das gewünschte Ausgabeformat aus den folgenden Optionen:
 
-### 2.4. Eingabe des Esperanto-Textes
+- **HTML-Format mit Ruby-Anmerkungen und Größenanpassung**: Fügt Ruby-Anmerkungen hinzu und passt deren Größe automatisch an
+- **HTML-Format mit Ruby-Anmerkungen, Größenanpassung und Kanji-Ersetzung**: Wie oben, aber mit Kanji anstelle des Originaltextes
+- **HTML-Format**: Einfaches HTML-Format mit Ruby-Anmerkungen
+- **HTML-Format mit Kanji-Ersetzung**: Einfaches HTML-Format mit Kanji anstelle des Originaltextes
+- **Format mit Klammern**: Zeigt Übersetzungen in Klammern hinter den Originalwörtern
+- **Format mit Klammern und Kanji-Ersetzung**: Zeigt das Original in Klammern hinter den Kanji/Übersetzungen
+- **Nur den ersetzten Text beibehalten**: Zeigt nur die Ersetzungen ohne den Originaltext
 
-1. Wählen Sie, ob Sie den Text manuell eingeben oder eine Datei hochladen möchten.
-2. Bei manueller Eingabe: Geben Sie den Esperanto-Text in das Textfeld ein.
-3. Bei Datei-Upload: Laden Sie eine Textdatei (UTF-8-Format) hoch.
+### 1.5 Eingabetext bereitstellen
 
-### 2.5. Darstellungsform der speziellen Esperanto-Zeichen wählen
+Sie haben zwei Möglichkeiten, den zu verarbeitenden Esperanto-Text bereitzustellen:
 
-Wählen Sie, wie die speziellen Buchstaben im Ergebnis dargestellt werden sollen:
-- **Akzent auf dem Buchstaben**: Verwendet die Originalschreibweise mit Zirkumflex (ĉ, ĝ, ĥ, ĵ, ŝ, ŭ)
-- **x-Format**: Verwendet die x-Notation (cx, gx, hx, jx, sx, ux)
-- **^-Format**: Verwendet die Zirkumflex-Notation (c^, g^, h^, j^, s^, u^)
+- **Manuelle Eingabe**: Geben Sie den Text direkt in das Textfeld ein
+- **Datei hochladen**: Laden Sie eine Textdatei (UTF-8-kodiert) hoch
 
-### 2.6. Konvertierung starten
+### 1.6 Spezielle Markierungen im Text
 
-1. Klicken Sie auf "Senden", um die Konvertierung zu starten.
-2. Wenn Sie den Vorgang abbrechen möchten, klicken Sie auf "Abbrechen".
+Sie können Teile des Textes speziell markieren:
 
-### 2.7. Ergebnis anzeigen und herunterladen
+- **%Text%**: Text zwischen %-Zeichen wird **nicht ersetzt** und im Ergebnis unverändert beibehalten
+- **@Text@**: Text zwischen @-Zeichen wird **nur innerhalb dieses Fragments** ersetzt (lokale Ersetzung)
 
-1. Nach der Konvertierung wird das Ergebnis angezeigt. Bei HTML-Formaten sehen Sie sowohl eine Vorschau als auch den generierten HTML-Code.
-2. Klicken Sie auf "Ergebnis herunterladen", um die konvertierte Datei zu speichern.
+### 1.7 Darstellungsform der Esperanto-Sonderzeichen
 
-## 3. Ausgabeformate verstehen
+Wählen Sie, wie die speziellen Esperanto-Zeichen (ĉ, ĝ, ĥ, ĵ, ŝ, ŭ) im Ergebnis dargestellt werden sollen:
 
-Die Anwendung bietet verschiedene Ausgabeformate an:
+- **Akzent auf dem Buchstaben**: ĉ, ĝ, ĥ, ĵ, ŝ, ŭ
+- **x-Format**: cx, gx, hx, jx, sx, ux
+- **^-Format**: c^, g^, h^, j^, s^, u^
 
-### 3.1. HTML-Formate mit Ruby-Annotationen
+### 1.8 Verarbeitung und Ergebnis
 
-- **HTML-Format mit Ruby-Anmerkungen und Größenanpassung**:  
-  Der Esperanto-Text wird als Haupttext beibehalten, mit den Übersetzungen/Kanji als Ruby-Anmerkungen darüber. Die Größe der Ruby-Anmerkungen wird automatisch angepasst.
+Nach dem Klick auf "Senden" wird der Text verarbeitet. Das Ergebnis wird je nach gewähltem Ausgabeformat angezeigt:
 
-- **HTML-Format mit Ruby-Anmerkungen, Größenanpassung und Kanji-Ersetzung**:  
-  Die Übersetzungen/Kanji werden als Haupttext verwendet, mit dem Esperanto-Text als Ruby-Anmerkungen. Die Größe der Ruby-Anmerkungen wird automatisch angepasst.
+- Bei HTML-Formaten: Zwei Registerkarten für "HTML-Vorschau" und "Ergebnis (HTML-Code)"
+- Bei anderen Formaten: Eine Registerkarte "Ergebnis-Text"
 
-- **HTML-Format**:  
-  Einfaches HTML-Format mit Ruby-Anmerkungen ohne Größenanpassung.
+Sie können das Ergebnis über den Button "Ergebnis herunterladen" als Datei speichern.
 
-- **HTML-Format mit Kanji-Ersetzung**:  
-  Einfaches HTML-Format, bei dem die Kanji den Haupttext bilden und der Esperanto-Text als Ruby-Anmerkung erscheint.
+## 2. Seite zur JSON-Generierung
 
-### 3.2. Klammer-Formate
+Diese Seite ermöglicht es Ihnen, eigene JSON-Dateien mit Ersetzungsregeln zu erstellen.
 
-- **Format mit Klammern**:  
-  Der Esperanto-Text bleibt der Haupttext, während die Übersetzungen/Kanji in Klammern dahinter stehen, z.B. "lingvo(Sprache)".
+### 2.1 Einführung
 
-- **Format mit Klammern und Kanji-Ersetzung**:  
-  Die Übersetzungen/Kanji bilden den Haupttext, während der Esperanto-Text in Klammern steht, z.B. "Sprache(lingvo)".
+Auf dieser Seite können Sie eine JSON-Datei erstellen, die für die Ersetzung von Esperanto-Texten auf der Hauptseite verwendet wird. Sie müssen dafür:
 
-### 3.3. Einfache Ersetzung
+1. Eine CSV-Datei mit Esperanto-Wortstämmen und deutschen Übersetzungen hochladen oder die Standarddatei verwenden
+2. Eine JSON-Datei mit Regeln zur Stammzerlegung hochladen oder die Standarddatei verwenden
+3. Auf "JSON-Datei für Ersetzung erstellen" klicken, um die Ersetzungs-JSON zu generieren und herunterzuladen
 
-- **Nur den ersetzten Text beibehalten**:  
-  Nur die Übersetzungen/Kanji werden angezeigt, der Esperanto-Text wird vollständig ersetzt.
+### 2.2 Beispieldateien
 
-## 4. Spezielle Textmarkierungen mit % und @
+Im Abschnitt "Liste der Beispieldateien" können Sie verschiedene Vorlagen herunterladen:
 
-Die Anwendung bietet zwei spezielle Markierungen, um die Konvertierung bestimmter Textabschnitte zu steuern:
+- **Beispiel-CSV**: Enthält Esperanto-Wortstämme mit deutschen Übersetzungen und Ruby-Anmerkungen
+- **Beispiel-JSON**: Enthält Regeln zur Zerlegung von Esperanto-Wörtern
+- Weitere CSV- und Excel-Dateien mit Übersetzungen in verschiedenen Sprachen
 
-### 4.1. %-Markierung: Teile unverändert beibehalten
+### 2.3 Ausgabeformat wählen
 
-Wenn Sie einen Teil des Textes von der Konvertierung ausschließen möchten, können Sie ihn in %-Zeichen einschließen:
+Wählen Sie das Format, in dem die Ersetzungen in der generierten JSON-Datei gespeichert werden sollen. Die Optionen entsprechen denen auf der Hauptseite.
+
+### 2.4 CSV-Datei vorbereiten (Schritt 1)
+
+Wählen Sie, ob Sie eine eigene CSV-Datei hochladen oder die Standarddatei verwenden möchten. Die CSV-Datei sollte Esperanto-Wortstämme und deren Übersetzungen enthalten.
+
+### 2.5 JSON-Dateien vorbereiten (Schritt 2)
+
+Hier müssen Sie zwei JSON-Dateien vorbereiten:
+
+1. **JSON-Datei für die Zerlegung von Esperanto-Wortstämmen**: Definiert, wie Esperanto-Wörter in ihre Bestandteile zerlegt werden
+2. **JSON-Datei für benutzerdefinierte Ersetzungszeichenketten**: Enthält spezielle Ersetzungen für bestimmte Wörter
+
+Für beide können Sie entweder eine eigene Datei hochladen oder die Standarddatei verwenden.
+
+### 2.6 Erweiterte Einstellungen (Schritt 3)
+
+Wie auf der Hauptseite können Sie hier die Parallelverarbeitung aktivieren und die Anzahl der Prozesse festlegen.
+
+### 2.7 JSON-Datei generieren
+
+Klicken Sie auf "JSON-Datei für die Ersetzung erstellen", um die Ersetzungsregeln zu generieren. Nach der Verarbeitung können Sie die erzeugte JSON-Datei herunterladen.
+
+## 3. Funktionsweise der Ersetzungsregeln
+
+### 3.1 Grundprinzip
+
+Die App zerlegt Esperanto-Wörter in ihre Bestandteile (Wortstämme, Präfixe, Suffixe) und ersetzt diese durch entsprechende Kanji oder Übersetzungen. Zum Beispiel:
+
+- Das Wort "amiko" (Freund) wird zerlegt in den Stamm "amik" + Endung "o"
+- Der Stamm "amik" wird dann durch seine Übersetzung/Kanji ersetzt
+- Je nach Ausgabeformat wird das Ergebnis mit Ruby-Anmerkungen oder in Klammern dargestellt
+
+### 3.2 Spezielle Syntax
+
+Die App unterstützt zwei spezielle Markierungen im Text:
+
+- **%Text%**: Schützt Text vor Ersetzungen
+  - Beispiel: "Mi estas %homo% kaj vi estas hundo." → Nur "homo" bleibt unverändert
+  
+- **@Text@**: Ermöglicht lokale Ersetzungen
+  - Beispiel: "Mi @amas@ vin." → Nur innerhalb von "amas" werden lokale Ersetzungsregeln angewendet
+
+### 3.3 Esperanto-Sonderzeichen
+
+Die App kann mit verschiedenen Darstellungen der Esperanto-Sonderzeichen umgehen:
+
+- Akzent auf dem Buchstaben: ĉ, ĝ, ĥ, ĵ, ŝ, ŭ
+- x-Format: cx, gx, hx, jx, sx, ux
+- ^-Format: c^, g^, h^, j^, s^, u^
+
+## 4. Tipps und Beispiele
+
+### 4.1 Optimale Ergebnisse erzielen
+
+- Verwenden Sie die HTML-Formate mit Größenanpassung für die besten Ruby-Anmerkungen
+- Bei sehr langen Ruby-Anmerkungen fügt die App automatisch Zeilenumbrüche ein
+- Bei der Erstellung eigener Ersetzungsregeln sollten Sie mit den Beispieldateien beginnen
+
+### 4.2 CSV-Format für eigene Ersetzungsregeln
+
+Ihre CSV-Datei sollte folgendes Format haben:
+- Erste Spalte: Esperanto-Wortstamm (z.B. "am")
+- Zweite Spalte: Übersetzung oder Kanji (z.B. "Liebe" oder "愛")
+
+### 4.3 Beispieltext
+
+Hier ist ein einfaches Beispiel, wie die App einen Esperanto-Text verarbeiten könnte:
+
+Original:
 ```
-La %Universala Esperanto-Asocio% estas grava organizaĵo.
+La suno brilas. Mi amas vin.
 ```
-In diesem Beispiel würde "Universala Esperanto-Asocio" nicht konvertiert werden.
 
-**Wichtig**: Der Text zwischen %-Zeichen darf nicht länger als 50 Zeichen sein.
-
-### 4.2. @-Markierung: Lokale Konvertierung
-
-Wenn Sie einen Teil des Textes separat konvertieren möchten (ohne Berücksichtigung des Kontexts), können Sie ihn in @-Zeichen einschließen:
+Ergebnis (HTML-Format mit Ruby-Anmerkungen):
+```html
+<ruby>La<rt>Die</rt></ruby> <ruby>sun<rt>Sonne</rt></ruby><ruby>o<rt>-o</rt></ruby> <ruby>bril<rt>glänzen</rt></ruby><ruby>as<rt>-as</rt></ruby>. <ruby>Mi<rt>Ich</rt></ruby> <ruby>am<rt>lieben</rt></ruby><ruby>as<rt>-as</rt></ruby> <ruby>vin<rt>dich</rt></ruby>.
 ```
-Mi lernas @Esperanto@ ĉiutage.
-```
-In diesem Beispiel würde "Esperanto" nach den grundlegenden Ersetzungsregeln konvertiert, ohne den umliegenden Text zu berücksichtigen.
 
-**Wichtig**: Der Text zwischen @-Zeichen darf nicht länger als 18 Zeichen sein.
+Dies würde im Browser angezeigt als:
+> L͟a͟ s͟u͟n͟o͟ b͟r͟i͟l͟a͟s͟. M͟i͟ a͟m͟a͟s͟ v͟i͟n͟.  
+> Die Sonne -o glänzen -as Ich lieben -as dich
 
-## 5. Erstellen eigener Ersetzungsregeln (JSON)
+## 5. Verfügbare Sprachversionen
 
-Auf der zweiten Seite der Anwendung können Sie eigene Ersetzungsregeln erstellen:
+Die App ist in verschiedenen Sprachen verfügbar. Links zu allen Versionen finden Sie am Ende der Hauptseite.
 
-### 5.1. Zugriff auf die Erstellungsseite
+## 6. Fehlerbehebung
 
-Navigieren Sie zur "Seite zur Erstellung einer JSON-Datei, um Esperanto-Texte durch Zeichenketten (Kanji) zu ersetzen".
+- **Problem**: Die Ausgabe enthält unerwartete Zeichen  
+  **Lösung**: Stellen Sie sicher, dass alle Dateien UTF-8-kodiert sind
 
-### 5.2. CSV-Datei vorbereiten
+- **Problem**: Bestimmte Wörter werden nicht korrekt ersetzt  
+  **Lösung**: Überprüfen Sie die JSON-Ersetzungsregeln oder erstellen Sie eigene für spezifische Wörter
 
-1. Wählen Sie "CSV-Datei hochladen" oder "Standarddatei verwenden".
-2. Bei Hochladen: Die CSV-Datei sollte zwei Spalten enthalten - Esperanto-Wortstamm und Übersetzung/Kanji.
-3. Sie können auch Beispiel-CSV-Dateien herunterladen, um das richtige Format zu sehen.
+- **Problem**: Die App reagiert langsam bei großen Texten  
+  **Lösung**: Aktivieren Sie die Parallelverarbeitung in den erweiterten Einstellungen
 
-### 5.3. JSON-Datei(en) vorbereiten
+---
 
-1. Wählen Sie für beide Optionen "JSON-Datei hochladen" oder "Standarddatei verwenden":
-   - Die erste JSON-Datei definiert die Regeln zur Zerlegung von Esperanto-Wortstämmen
-   - Die zweite JSON-Datei enthält benutzerdefinierte Ersetzungszeichenketten
-
-### 5.4. Ausgabeformat wählen
-
-Wählen Sie das gewünschte Ausgabeformat aus dem Dropdown-Menü. Dies sollte dem Format entsprechen, das Sie später in der Hauptanwendung verwenden möchten.
-
-### 5.5. JSON-Datei erstellen
-
-1. Klicken Sie auf "JSON-Datei für die Ersetzung erstellen".
-2. Nach der Verarbeitung können Sie die erstellte JSON-Datei herunterladen.
-3. Diese Datei können Sie dann in der Hauptanwendung hochladen.
-
-## 6. Tipps und Tricks
-
-### 6.1. Optimierung für große Texte
-
-- Aktivieren Sie die Parallelverarbeitung für große Textmengen.
-- Bei sehr großen Texten sollten Sie diese in kleinere Teile aufteilen und separat verarbeiten.
-
-### 6.2. Verwendung der Ruby-Annotationen
-
-- Ruby-Annotationen funktionieren am besten in modernen Browsern.
-- Wenn Sie die Ergebnisse in andere Programme importieren, verwenden Sie am besten die Klammer-Formate.
-
-### 6.3. Anpassung der JSON-Regeln
-
-- Wenn Sie häufig bestimmte Wörter in einer anderen Weise übersetzen möchten, erstellen Sie Ihre eigene JSON-Datei.
-- Die Zerlegungsregeln für Esperanto-Wortstämme können angepasst werden, um Präfixe, Suffixe und Wortendungen genauer zu erkennen.
-
-## 7. Fehlerbehebung
-
-### 7.1. Unerwartete Konvertierungen
-
-Wenn Wörter nicht wie erwartet konvertiert werden:
-- Prüfen Sie, ob der Wortstamm in der CSV-Datei enthalten ist.
-- Verwenden Sie die @-Markierung, um das Wort lokal zu konvertieren.
-- Erstellen Sie eine benutzerdefinierte JSON-Regel für dieses spezifische Wort.
-
-### 7.2. Fehler beim Hochladen von Dateien
-
-- Stellen Sie sicher, dass Ihre Dateien im UTF-8-Format kodiert sind.
-- Prüfen Sie, ob die CSV-Datei das richtige Format hat (zwei Spalten).
-- Bei JSON-Dateien: Stellen Sie sicher, dass sie syntaktisch korrekt sind.
-
-### 7.3. Leistungsprobleme
-
-- Reduzieren Sie die Textmenge, wenn die Konvertierung zu lange dauert.
-- Schalten Sie die Parallelverarbeitung ein oder aus, um die beste Leistung zu finden.
-- Bei großen JSON-Dateien kann das erste Laden länger dauern.
-
-## Zusammenfassung
-
-Das Esperanto-Kanji-Konverter und Ruby-Annotationswerkzeug bietet Ihnen vielfältige Möglichkeiten, Esperanto-Texte zu konvertieren und mit Übersetzungen oder Kanji zu versehen. Von einfachen Klammer-Formaten bis hin zu komplexen HTML-Strukturen mit Ruby-Annotationen können Sie das Format wählen, das Ihren Bedürfnissen am besten entspricht.
-
-Mit der Möglichkeit, eigene Ersetzungsregeln zu erstellen, können Sie das Werkzeug an Ihre spezifischen Anforderungen anpassen. Die speziellen Markierungen mit % und @ geben Ihnen zusätzliche Kontrolle über den Konvertierungsprozess.
-
-Viel Erfolg und Freude bei der Verwendung dieses Werkzeugs für Ihre Esperanto-Projekte!
+Diese Anwendung ist ein leistungsstarkes Werkzeug für Esperanto-Lernende und -Enthusiasten. Mit ihrer Hilfe können Sie Texte nicht nur übersetzen, sondern auch visuell aufbereiten, was das Lernen und Verstehen der Sprache erheblich erleichtert.
